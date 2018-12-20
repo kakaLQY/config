@@ -1,0 +1,7 @@
+# neovim
+alias vi "nvim"
+
+# exa to replace ls
+alias ls "exa"
+alias lsl "exa -la"
+
