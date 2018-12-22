@@ -80,6 +80,9 @@ set clipboard+=unnamedplus " copy to clipboard
 set tabstop=4 " when indenting with '>', use 4 spaces width 
 set shiftwidth=4 " On pressing tab, insert 4 spaces 
 set expandtab 
+" in makefiles, don't expand tabs to spaces, since actual tab characters are
+" needed, and have indentation at 8 chars to be sure that all indents are tabs
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " Colors 
 set background=dark
