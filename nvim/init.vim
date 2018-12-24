@@ -187,6 +187,7 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 let g:rustfmt_autosave = 1
 
 " NerdTree 
+let NERDTreeShowHidden=1
 " let g:NERDTreeDirArrowExpandable='▶' 
 " let g:NERDTreeDirArrowCollapsible='▼' 
 autocmd StdinReadPre * let s:std_in=1 
