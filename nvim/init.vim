@@ -54,7 +54,7 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim' 
 
-Plug 'jremmen/vim-ripgrep'
+Plug 'mileszs/ack.vim'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align 
 Plug 'junegunn/vim-easy-align' 
@@ -142,6 +142,12 @@ let g:ale_lint_on_enter = 0
 let g:ale_rust_cargo_use_check = 1 
 let g:ale_rust_cargo_check_all_targets = 1 
 
+let g:ale_open_list = 1
+" Set this if you want to.
+" This can be useful if you are combining ALE with
+" some other plugin which sets quickfix errors, etc.
+let g:ale_keep_list_window_open = 1
+
 let g:ale_echo_msg_error_str = 'Err'
 let g:ale_echo_msg_warning_str = 'War'
 let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
@@ -192,6 +198,9 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " Rust.vim
 let g:rustfmt_autosave = 1
+
+" Ack
+let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git"'
 
 " NerdTree 
 let NERDTreeShowHidden=1
