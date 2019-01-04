@@ -54,6 +54,8 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim' 
 
+Plug 'jremmen/vim-ripgrep'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align 
 Plug 'junegunn/vim-easy-align' 
 
@@ -139,6 +141,11 @@ let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0 
 let g:ale_rust_cargo_use_check = 1 
 let g:ale_rust_cargo_check_all_targets = 1 
+
+let g:ale_echo_msg_error_str = 'Err'
+let g:ale_echo_msg_warning_str = 'War'
+let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
+
 let g:airline#extensions#ale#enabled = 1
 
 " language server protocol 
