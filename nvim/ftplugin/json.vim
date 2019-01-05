@@ -1,3 +1,3 @@
 " JSON format 
 :command Format %!python -m json.tool
-map <leader>f :Format<CR> 
+map <C-f> :Format<CR> 

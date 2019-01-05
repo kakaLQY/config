@@ -1,1 +1,1 @@
-map <leader>f :RustFmt<CR> 
+map <C-f> :RustFmt<CR> 

@@ -98,7 +98,11 @@ nnoremap ; :
 
 " Open hotkeys 
 map <C-p> :Files<CR> 
+
+" Buffer, left and right can switch buffers
 nmap <C-b> :Buffers<CR> 
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 " Quick-save 
 nmap <leader>w :w<CR> 
@@ -130,6 +134,16 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz 
 nnoremap <silent> g* g*zz 
 
+" Quickfix, Jump to next/previous, close and open
+nnoremap <C-j> :cnext<cr>
+nnoremap <C-k> :cprev<cr>
+nnoremap <C-c> :cclose<cr> 
+nnoremap <C-o> :copen<cr>
+
+" Location List
+nnoremap <C-n> :lnext<cr> 
+nnoremap <C-m> :lprevious<cr>
+
 " Javascript 
 let javaScript_fold=0 
 
@@ -137,7 +151,7 @@ let javaScript_fold=0
 " let g:ale_sign_column_always = 1 " only lint on save 
 " let g:ale_completion_enabled = 1 
 let g:ale_lint_on_text_changed = 'never' 
-let g:ale_lint_on_save = 0
+let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0 
 let g:ale_rust_cargo_use_check = 1 
 let g:ale_rust_cargo_check_all_targets = 1 
@@ -146,8 +160,9 @@ let g:ale_open_list = 1
 " Set this if you want to.
 " This can be useful if you are combining ALE with
 " some other plugin which sets quickfix errors, etc.
-let g:ale_keep_list_window_open = 1
+let g:ale_keep_list_window_open = 0
 
+"
 let g:ale_echo_msg_error_str = 'Err'
 let g:ale_echo_msg_warning_str = 'War'
 let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
@@ -166,6 +181,7 @@ let g:LanguageClient_serverCommands = {
 	\ } 
 " 'go': ['bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log','--trace', '--pprof', ':6060'], 
 let g:LanguageClient_autoStart = 1 
+let g:LanguageClient_diagnosticsEnable = 0
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR> 
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR> 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR> 
@@ -201,6 +217,11 @@ let g:rustfmt_autosave = 1
 
 " Ack
 let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git"'
+cnoreabbrev Ack Ack!
+nnoremap <Leader>s :Ack!<Space>
+"let g:ack_mappings = {
+"              \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
+"              \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " NerdTree 
 let NERDTreeShowHidden=1
