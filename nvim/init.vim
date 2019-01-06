@@ -71,20 +71,20 @@ filetype plugin indent on
 " Use [number]+j, [number]+k to navigate 
 set relativenumber  " Relative line numbers 
 set number
-set colorcolumn=120 " and give me a colored column 
+set colorcolumn = 120 " and give me a colored column 
 set hidden 
 set ruler 
-set synmaxcol=2000 
+set synmaxcol = 2000 
 set showcmd 
-set clipboard+=unnamedplus " copy to clipboard
+set clipboard += unnamedplus " copy to clipboard
 
 " show existing tab with 4 spaces width 
-set tabstop=4 " when indenting with '>', use 4 spaces width 
-set shiftwidth=4 " On pressing tab, insert 4 spaces 
+set tabstop = 4 " when indenting with '>', use 4 spaces width 
+set shiftwidth = 4 " On pressing tab, insert 4 spaces 
 set expandtab 
 " in makefiles, don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType make set noexpandtab shiftwidth = 8 softtabstop = 0
 
 " Colors 
 set background=dark
@@ -116,10 +116,9 @@ nnoremap <leader><leader> <c-^>
 " ,c will copy entire buffer into clipboard 
 " noremap <leader>p :read !xsel --clipboard --output<cr> 
 " noremap <leader>c :w !xsel -ib<cr><cr> 
-set clipboard+=unnamedplus 
 
 " Permanent undo 
-set undodir=~/.vimdid 
+set undodir = ~/.vimdid 
 set undofile 
 
 " Proper search 
@@ -145,7 +144,7 @@ nnoremap <C-n> :lnext<cr>
 nnoremap <C-m> :lprevious<cr>
 
 " Javascript 
-let javaScript_fold=0 
+let javaScript_fold = 0 
 
 " Linter 
 " let g:ale_sign_column_always = 1 " only lint on save 
@@ -203,7 +202,7 @@ nmap <F8> :TagbarToggle<CR>
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>" 
 " Completion
 autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+set completeopt = noinsert,menuone,noselect
 
 " Golang vim-go shortcuts 
 autocmd FileType go nmap <leader>t  <Plug>(go-test) 
@@ -224,12 +223,12 @@ nnoremap <Leader>s :Ack!<Space>
 "              \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " NerdTree 
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 " let g:NERDTreeDirArrowExpandable='▶' 
 " let g:NERDTreeDirArrowCollapsible='▼' 
 
 " Open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1 
+autocmd StdinReadPre * let s:std_in = 1 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif 
 " Open NERDTree automatically when vim starts up on opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif 
