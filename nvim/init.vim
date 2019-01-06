@@ -14,9 +14,12 @@ Plug 'morhetz/gruvbox'
 " Git 
 Plug 'tpope/vim-fugitive'     
 
+" Better search
+Plug 'justinmk/vim-sneak'
+
 " Auto complete 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
-Plug 'Shougo/neopairs.vim' 
+" Plug 'Shougo/neopairs.vim' 
 " Plug 'zchee/deoplete-go', { 'do': 'make'} 
 
 Plug 'rust-lang/rust.vim'
@@ -96,6 +99,9 @@ colorscheme gruvbox
 " ; as : 
 nnoremap ; : 
 
+" History
+map <C-h> :History<CR> 
+
 " Open hotkeys 
 map <C-p> :Files<CR> 
 
@@ -164,7 +170,7 @@ let g:ale_keep_list_window_open = 0
 "
 let g:ale_echo_msg_error_str = 'Err'
 let g:ale_echo_msg_warning_str = 'War'
-let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_echo_msg_format = 'ALE [%linter%] %s'
 
 let g:airline#extensions#ale#enabled = 1
 
@@ -217,16 +223,13 @@ let g:rustfmt_autosave = 1
 " Ack
 let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git"'
 cnoreabbrev Ack Ack!
-nnoremap <Leader>s :Ack!<Space>
+nnoremap <C-s> :Ack!<Space>
 "let g:ack_mappings = {
 "              \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
 "              \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " NerdTree 
 let NERDTreeShowHidden = 1
-" let g:NERDTreeDirArrowExpandable='▶' 
-" let g:NERDTreeDirArrowCollapsible='▼' 
-
 " Open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in = 1 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif 
