@@ -71,20 +71,20 @@ filetype plugin indent on
 " Use [number]+j, [number]+k to navigate 
 set relativenumber  " Relative line numbers 
 set number
-set colorcolumn = 120 " and give me a colored column 
+set colorcolumn=120 " and give me a colored column 
 set hidden 
 set ruler 
-set synmaxcol = 2000 
+set synmaxcol=2000 
 set showcmd 
-set clipboard += unnamedplus " copy to clipboard
+set clipboard+=unnamedplus " copy to clipboard
 
 " show existing tab with 4 spaces width 
-set tabstop = 4 " when indenting with '>', use 4 spaces width 
-set shiftwidth = 4 " On pressing tab, insert 4 spaces 
+set tabstop=4 " when indenting with '>', use 4 spaces width 
+set shiftwidth=4 " On pressing tab, insert 4 spaces 
 set expandtab 
 " in makefiles, don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
-autocmd FileType make set noexpandtab shiftwidth = 8 softtabstop = 0
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " Colors 
 set background=dark
@@ -118,7 +118,7 @@ nnoremap <leader><leader> <c-^>
 " noremap <leader>c :w !xsel -ib<cr><cr> 
 
 " Permanent undo 
-set undodir = ~/.vimdid 
+set undodir=~/.vimdid 
 set undofile 
 
 " Proper search 
@@ -164,7 +164,7 @@ let g:ale_keep_list_window_open = 0
 "
 let g:ale_echo_msg_error_str = 'Err'
 let g:ale_echo_msg_warning_str = 'War'
-let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
+let g:ale_echo_msg_format = '[%linter%] %s'
 
 let g:airline#extensions#ale#enabled = 1
 
@@ -202,7 +202,7 @@ nmap <F8> :TagbarToggle<CR>
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>" 
 " Completion
 autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt = noinsert,menuone,noselect
+set completeopt=noinsert,menuone,noselect
 
 " Golang vim-go shortcuts 
 autocmd FileType go nmap <leader>t  <Plug>(go-test) 
