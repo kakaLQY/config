@@ -40,6 +40,11 @@ Plug 'mattn/webapi-vim'
 " Golang 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
 
+" Javascript
+Plug 'pangloss/vim-javascript'
+" Typescript
+Plug 'leafgarland/typescript-vim'
+
 " Fish function 
 Plug 'dag/vim-fish' 
 
@@ -158,8 +163,6 @@ let javaScript_fold = 0
 let g:ale_lint_on_text_changed = 'never' 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0 
-let g:ale_rust_cargo_use_check = 1 
-let g:ale_rust_cargo_check_all_targets = 1 
 
 let g:ale_open_list = 1
 " Set this if you want to.
