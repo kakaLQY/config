@@ -184,7 +184,7 @@ let g:LanguageClient_rootMarkers = {
 let g:LanguageClient_settingsPath = "/home/kaka/.vim/settings.json" 
 let g:LanguageClient_serverCommands = {     
 	\ 'rust': ['env', 'CARGO_TARGET_DIR=/home/kaka/data/rust/cargo-target/rls', 'rls'],     
-	\ 'javascript': ['/usr/bin/javascript-typescript-stdio'],     
+	\ 'javascript': ['javascript-typescript-stdio'],     
 	\ 'javascript.jsx': ['tcp://127.0.0.1:2089'],     
 	\ } 
 " 'go': ['bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log','--trace', '--pprof', ':6060'], 
