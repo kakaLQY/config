@@ -40,10 +40,12 @@ Plug 'mattn/webapi-vim'
 " Golang 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
 
-" Javascript
-Plug 'pangloss/vim-javascript'
 " Typescript
 Plug 'leafgarland/typescript-vim'
+
+" Javascript
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " Fish function 
 Plug 'dag/vim-fish' 
