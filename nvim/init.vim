@@ -81,7 +81,7 @@ filetype plugin indent on
 " Use [number]+j, [number]+k to navigate 
 set relativenumber  " Relative line numbers 
 set number
-set colorcolumn=120 " and give me a colored column 
+set colorcolumn=100 " and give me a colored column 
 set hidden 
 set ruler 
 set synmaxcol=2000 
