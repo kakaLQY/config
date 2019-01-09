@@ -234,7 +234,7 @@ nnoremap <C-s> :Ack!<Space>
 "              \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " Ignores
-set wildignore+=*.gif,*.jpg,*.png
+set wildignore+=*.gif,*.jpg,*.png,*.zip
 set wildignore+=.git
 set wildignore+=node_modules
 
