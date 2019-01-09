@@ -79,6 +79,7 @@ call plug#end()
 filetype plugin indent on 
 
 " Use [number]+j, [number]+k to navigate 
+set list listchars=tab:>\ ,trail:-,eol:$
 set relativenumber  " Relative line numbers 
 set number
 set colorcolumn=100 " and give me a colored column 
