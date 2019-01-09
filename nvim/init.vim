@@ -226,7 +226,7 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 let g:rustfmt_autosave = 1
 
 " Ack
-let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden'
+let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git"'
 cnoreabbrev Ack Ack!
 nnoremap <C-s> :Ack!<Space>
 "let g:ack_mappings = {
@@ -235,7 +235,6 @@ nnoremap <C-s> :Ack!<Space>
 
 " Ignores
 set wildignore+=*.gif,*.jpg,*.png,*.zip
-set wildignore+=.git
 set wildignore+=node_modules
 
 " NerdTree 
