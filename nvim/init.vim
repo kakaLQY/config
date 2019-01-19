@@ -227,7 +227,7 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 let g:rustfmt_autosave = 1
 
 " Ack
-let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git"'
+let g:ackprg = 'rg --vimgrep --no-heading --smart-case --hidden -g "!.git" -g "!target"'
 cnoreabbrev Ack Ack!
 nnoremap <C-s> :Ack!<Space>
 "let g:ack_mappings = {
