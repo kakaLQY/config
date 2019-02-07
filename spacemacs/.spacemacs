@@ -332,6 +332,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq org-agenda-files (directory-files-recursively "~/Documents/orgs/" "\.org$"))
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/Documents/orgs/gtd.org" "Tasks")
+           "* TODO %?\n  %i\n  %a")
+          ("j" "Journal" entry (file+datetree "~/Documents/orgs/journal.org")
+           "* %?\nEntered on %U\n  %i\n  %a")))
 
   (turn-on-fci-mode)
   (setq-default fill-column 100)
