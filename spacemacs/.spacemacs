@@ -331,6 +331,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; before ispell-hunspell-add-multi-dic will work
   ;;(ispell-set-spellchecker-params)
   ;;(ispell-hunspell-add-multi-dic "en_GB,en_US-med"))
+  (setq projectile-use-git-grep 1)
   )
 
 (defun dotspacemacs/user-config ()
