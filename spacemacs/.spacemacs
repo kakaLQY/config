@@ -68,6 +68,8 @@ This function should only modify configuration layer settings."
                      enable-flyspell-auto-completion t
                      spell-checking-enable-by-default nil)
      syntax-checking
+     (syntax-checking :variables
+                      flycheck-check-syntax-automatically '(save))
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
