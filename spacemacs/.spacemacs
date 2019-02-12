@@ -355,6 +355,9 @@ you should place your code here."
   (turn-on-fci-mode)
   (setq-default fill-column 100)
 
+  (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'native)
+
   (defun copy-to-clipboard ()
     "Copies selection to x-clipboard."
     (interactive)
@@ -382,12 +385,14 @@ you should place your code here."
       (insert (shell-command-to-string "xsel -o -b"))
       )
     )
+
   (evil-leader/set-key "o y" 'copy-to-clipboard)
   (evil-leader/set-key "o p" 'paste-from-clipboard)
   (evil-leader/set-key "o d" 'magit-diff-buffer-file)
 
   (eval-after-load 'js2-mode
     '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
