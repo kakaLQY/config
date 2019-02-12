@@ -357,6 +357,19 @@ you should place your code here."
 
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'native)
+  (setq projectile-globally-ignored-file-suffixes
+        '(
+          ".png"
+          ".jpg"
+          ".gif"
+          ".woff"
+          ".woff2"
+          ".ttf"
+          ".mp4"
+          ".zip"
+          ".o"
+          ".cache")
+        )
 
   (defun copy-to-clipboard ()
     "Copies selection to x-clipboard."
