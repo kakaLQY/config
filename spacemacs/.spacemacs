@@ -365,9 +365,9 @@ you should place your code here."
   (add-hook 'js-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
 
   ;; Fuzzy search with ivy
+  (setq ivy-initial-inputs-alist nil)
   (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t      . ivy--regex-fuzzy)))
+        '((t . ivy--regex-fuzzy)))
 
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'native)
