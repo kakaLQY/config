@@ -419,8 +419,8 @@ you should place your code here."
   (evil-leader/set-key "o d" 'magit-diff-buffer-file)
 
   ;; Swith SPC and TAB to use double SPC to switch to last buffer.
-  (evil-leader/set-key "SPC" 'evil-switch-to-windows-last-buffer)
-  (evil-leader/set-key "TAB" 'counsel-M-x)
+  ;;(evil-leader/set-key "SPC" 'evil-switch-to-windows-last-buffer)
+  ;;(evil-leader/set-key "TAB" 'counsel-M-x)
 
   (eval-after-load 'js2-mode
     '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
