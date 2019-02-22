@@ -48,6 +48,10 @@ This function should only modify configuration layer settings."
      helm
      ;;ivy
      auto-completion
+     '((auto-completion :variables
+                        spacemacs-default-company-backends '(company-files
+                                                             company-tern
+                                                             company-capf)))
      ;; better-defaults
      emacs-lisp
      git
@@ -81,7 +85,8 @@ This function should only modify configuration layer settings."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(eslint-fix)
+   dotspacemacs-additional-packages '(eslint-fix
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -418,9 +423,12 @@ you should place your code here."
   (evil-leader/set-key "o p" 'paste-from-clipboard)
   (evil-leader/set-key "o d" 'magit-diff-buffer-file)
 
+  (evil-leader/set-key "[" 'avy-goto-word-or-subword-1)
+
   ;; Swith SPC and TAB to use double SPC to switch to last buffer.
   ;;(evil-leader/set-key "SPC" 'evil-switch-to-windows-last-buffer)
   ;;(evil-leader/set-key "TAB" 'counsel-M-x)
+  (global-company-mode)
 
   (eval-after-load 'js2-mode
     '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
