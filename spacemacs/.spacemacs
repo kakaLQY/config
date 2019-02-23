@@ -381,8 +381,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;(ispell-hunspell-add-multi-dic "en_GB,en_US-med"))
   (setq dotspacemacs-search-tools '("rg"))
 
-  (unless nil (setq-default dotspacemacs-default-font `("Source Code Pro"
-                                            :size ,(string-to-number (getenv "EMACS_FONT_SIZE"))
+  (setq EMACS_FONT_SIZE (getenv "EMACS_FONT_SIZE"))
+  (if EMACS_FONT_SIZE (setq-default dotspacemacs-default-font `("Source Code Pro"
+                                            :size ,(string-to-number EMACS_FONT_SIZE)
                                             :weight normal
                                             :width condensed
                                             :powerline-scale 1.0)))
