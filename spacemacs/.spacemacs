@@ -48,15 +48,17 @@ This function should only modify configuration layer settings."
      helm
      ;;ivy
      auto-completion
-     '((auto-completion :variables
-                        spacemacs-default-company-backends '(company-files
-                                                             company-tern
-                                                             company-capf)))
+     (auto-completion :variables
+                      spacemacs-default-company-backends '(company-files
+                                                           company-tern
+                                                           company-capf
+                                                           hippie-expand))
      ;; better-defaults
      emacs-lisp
      git
      org
      markdown
+     multiple-cursors
      treemacs
      ranger
      (ranger :variables
@@ -155,20 +157,36 @@ values."
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
+
+   ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
+   ;; (default nil)
+   dotspacemacs-initial-scratch-message "Kaka's Spacemacs"
+
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(flatland
                          gruvbox
                          material)
-   ;; If non nil the cursor color matches the state color in GUI Emacs.
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
+   ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
+   ;; `vanilla' is default Emacs mode-line. `custom' is a user defined themes,
+   ;; refer to the DOCUMENTATION.org for more info on how to create your own
+   ;; spaceline theme. Value can be a symbol or list with additional properties.
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+
+   ;; If non-nil the cursor color matches the state color in GUI Emacs.
+   ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
+
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 15 ;;:EMACS_FONT_SIZE;;(getenv "EMACS_FONT_SIZE")
+   dotspacemacs-default-font `("Source Code Pro"
+                               :size 15
                                :weight normal
-                               :width condensed
+                               :width normal
                                :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -311,9 +329,10 @@ values."
    ;; (default nil)
    dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
-   ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-   ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag", "rg", "ack", "grep")
+   ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
+   ;; (default '("rg" "ag" "pt" "ack" "grep"))
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -324,7 +343,23 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
-   ))
+
+   ;; Either nil or a number of seconds. If non-nil zone out after the specified
+   ;; number of seconds. (default nil)
+   dotspacemacs-zone-out-when-idle nil
+
+   ;; Run `spacemacs/prettify-org-buffer' when
+   ;; visiting README.org files of Spacemacs.
+   ;; (default nil)
+   dotspacemacs-pretty-docs nil))
+
+(defun dotspacemacs/user-env ()
+  "Environment variables setup.
+This function defines the environment variables for your Emacs session. By
+default it calls `spacemacs/load-spacemacs-env' which loads the environment
+variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
+See the header of this file for more information."
+  (spacemacs/load-spacemacs-env))
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
@@ -345,6 +380,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;(ispell-set-spellchecker-params)
   ;;(ispell-hunspell-add-multi-dic "en_GB,en_US-med"))
   (setq dotspacemacs-search-tools '("rg"))
+
+  (unless nil (setq-default dotspacemacs-default-font `("Source Code Pro"
+                                            :size ,(string-to-number (getenv "EMACS_FONT_SIZE"))
+                                            :weight normal
+                                            :width condensed
+                                            :powerline-scale 1.0)))
   )
 
 (defun dotspacemacs/user-config ()
