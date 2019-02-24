@@ -80,7 +80,7 @@ This function should only modify configuration layer settings."
                      spell-checking-enable-by-default nil)
      syntax-checking
      (syntax-checking :variables
-                      flycheck-check-syntax-automatically '(save))
+                      flycheck-check-syntax-automatically '(mode-enabled save))
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
