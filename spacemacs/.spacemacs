@@ -49,9 +49,9 @@ This function should only modify configuration layer settings."
      ;;ivy
      auto-completion
      (auto-completion :variables
-                      spacemacs-default-company-backends '(company-files
+                      spacemacs-default-company-backends '(company-capf
+                                                           company-files
                                                            company-tern
-                                                           company-capf
                                                            hippie-expand))
      ;; better-defaults
      emacs-lisp
