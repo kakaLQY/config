@@ -37,9 +37,12 @@ This function should only modify configuration layer settings."
      rust
      javascript
      (javascript :variables
+                 javascript-disable-tern-port-files nil
                  js2-basic-offset 2
                  js-indent-level 2)
      typescript
+     (typescript :variables
+                 typescript-fmt-on-save t)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
