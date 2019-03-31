@@ -1,0 +1,3 @@
+xinput list
+xinput list-props 11
+xinput set-prop 11 "libinput Tapping Drag Enabled" 0
