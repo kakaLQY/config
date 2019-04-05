@@ -375,17 +375,17 @@ label-separator-foreground = ${colors.foreground-alt}
 ;menu-1-0-exec = mate-control-center
 
 menu-0-0 = Logout
-menu-0-0-exec = mate-session-save --logout-dialog
+menu-0-0-exec = i3-msg exit
 menu-0-1 = Reboot
-menu-0-1-exec = menu-open-3
+menu-0-1-exec = menu-open-1
 menu-0-2 = Power Off
-menu-0-2-exec = menu-open-4
+menu-0-2-exec = menu-open-2
 
-menu-3-0 = Reboot
-menu-3-0-exec = sudo reboot
+menu-1-0 = Reboot
+menu-1-0-exec = sudo reboot
 
-menu-4-0 = Power Off
-menu-4-0-exec = sudo poweroff
+menu-2-0 = Power Off
+menu-2-0-exec = sudo poweroff
 
 [settings]
 screenchange-reload = true
