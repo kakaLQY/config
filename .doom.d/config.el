@@ -13,6 +13,10 @@
 
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en" "--run-together")) ;; --camel-case on 0.60.8
 
+;; undo-tree
+(global-undo-tree-mode 1)
+
+;; String manipulation by using s package
 (defun str-camel-case (beg end)
   "some words => someWords"
   (interactive "r")
