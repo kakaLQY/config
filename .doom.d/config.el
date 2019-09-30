@@ -1,5 +1,8 @@
 ;; Place your private configuration here
 
+;; Env vars
+(setenv "SHELL" "fish")
+
 (setq display-line-numbers-type 'relative)
 (setq show-trailing-whitespace t)
 
@@ -23,5 +26,3 @@
   (let ((s (buffer-substring beg end)))
     (delete-region beg end)
     (insert (s-lower-camel-case s))))
-
-(setenv "SHELL" "fish")
