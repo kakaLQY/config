@@ -23,3 +23,5 @@
   (let ((s (buffer-substring beg end)))
     (delete-region beg end)
     (insert (s-lower-camel-case s))))
+
+(setenv "SHELL" "fish")
