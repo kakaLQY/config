@@ -14,7 +14,7 @@
            'delete-trailing-whitespace
            'doom/delete-trailing-newlines)
 
-(setq ispell-extra-args '("--sug-mode=ultra" "--lang=en" "--run-together")) ;; --camel-case on 0.60.8
+(setq ispell-extra-args '("--sug-mode=ultra" "--lang=en" "--run-together" "--camel-case"))
 
 ;; undo-tree
 (global-undo-tree-mode 1)
