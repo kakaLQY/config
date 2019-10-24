@@ -26,3 +26,12 @@
   (let ((s (buffer-substring beg end)))
     (delete-region beg end)
     (insert (s-lower-camel-case s))))
+
+
+;; Org Mode
+(let ((org-folder-mac-os "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+      (org-folder-other-os "~/org"))
+  (setq org-agenda-files (list org-folder-mac-os
+                               (concat org-folder-mac-os "/private")       ;; For private device
+                               org-folder-other-os
+                               (concat org-folder-other-os "/private"))))
