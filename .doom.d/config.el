@@ -11,8 +11,7 @@
 (add-hook! 'js2-mode-hook 'eslintd-fix-mode)
 
 (add-hook! 'before-save-hook
-           'delete-trailing-whitespace
-           'doom/delete-trailing-newlines)
+           'delete-trailing-whitespace)
 
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en" "--run-together" "--camel-case"))
 
