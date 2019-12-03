@@ -13,6 +13,9 @@
 (add-hook! 'before-save-hook
            'delete-trailing-whitespace)
 
+;; Auth save
+(add-to-list 'focus-out-hook (lambda () (save-some-buffers t nil)))
+
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en" "--run-together" "--camel-case"))
 
 ;; undo-tree
