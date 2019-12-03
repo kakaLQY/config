@@ -34,3 +34,7 @@
                                (concat org-folder-mac-os "/private")       ;; For private device
                                org-folder-other-os
                                (concat org-folder-other-os "/private"))))
+
+;; Clojure
+(add-hook! 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+(add-hook! 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
