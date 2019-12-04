@@ -41,3 +41,6 @@
 ;; Clojure
 (add-hook! 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
 (add-hook! 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+(add-hook! 'clojure-mode-hook #'paredit-mode)
+(add-hook! 'clojurec-mode-hook #'paredit-mode)
+(add-hook! 'clojurescript-mode-hook #'paredit-mode)
