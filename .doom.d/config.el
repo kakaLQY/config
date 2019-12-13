@@ -1,4 +1,5 @@
 ;; Place your private configuration here
+(load! "bindings")
 
 ;; Env vars
 (setenv "SHELL" "fish")
