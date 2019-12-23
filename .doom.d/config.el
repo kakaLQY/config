@@ -7,7 +7,7 @@
 (setq display-line-numbers-type 'relative)
 (setq show-trailing-whitespace t)
 
-(setq doom-font (font-spec :family "Fira Code" :size 13))
+(setq doom-font (font-spec :family "Fira Code" :size 15))
 
 (add-hook! 'js2-mode-hook 'eslintd-fix-mode)
 
