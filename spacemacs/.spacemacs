@@ -41,7 +41,10 @@ This function should only modify configuration layer settings."
 
      ;; Languages
      clojure
+     javascript
      rust
+     sql
+     yaml
 
      ;; Tools
      auto-completion
@@ -364,7 +367,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -474,6 +477,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; General
+  (add-hook 'before-save-hook
+             'delete-trailing-whitespace)
 
   (setq-default fill-column 100)
 
@@ -485,6 +491,13 @@ before packages are loaded."
   ;; Swith SPC and TAB to use double SPC to switch to last buffer.
   (evil-leader/set-key "SPC" 'evil-switch-to-windows-last-buffer)
   (evil-leader/set-key "TAB" 'counsel-M-x)
+
+  ;; Clojure
+  (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+  (add-hook 'clojure-mode-hook #'paredit-mode)
+  (add-hook 'clojurec-mode-hook #'paredit-mode)
+  (add-hook 'clojurescript-mode-hook #'paredit-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
