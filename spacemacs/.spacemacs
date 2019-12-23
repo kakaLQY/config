@@ -42,9 +42,11 @@ This function should only modify configuration layer settings."
      ;; Languages
      clojure
      javascript
+     python
      rust
      sql
      yaml
+     shell-scripts
 
      ;; Tools
      auto-completion
@@ -493,6 +495,7 @@ before packages are loaded."
   (evil-leader/set-key "TAB" 'counsel-M-x)
 
   ;; Clojure
+  (setq clojure-indent-style 'align-arguments)
   (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'clojure-mode-hook #'paredit-mode)
