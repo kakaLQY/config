@@ -74,7 +74,9 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(dracula-theme)
+   dotspacemacs-additional-packages '(graphql-mode
+                                      key-chord
+                                      dracula-theme)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -369,7 +371,16 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers '(:relative t
+                               :visual nil
+                               :disabled-for-modes dired-mode
+                                                   prog-mode
+                                                   doc-view-mode
+                                                   markdown-mode
+                                                   org-mode
+                                                   pdf-view-mode
+                                                   text-mode
+                               :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -437,7 +448,7 @@ It should only modify the values of Spacemacs settings."
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'all
 
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
@@ -462,8 +473,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-
-  (setq dotspacemacs-search-tools '("rg"))
   )
 
 (defun dotspacemacs/user-load ()
@@ -479,11 +488,24 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; General
-  (add-hook 'before-save-hook
-             'delete-trailing-whitespace)
 
-  (setq-default fill-column 100)
+  ;; jk to change to normal mode
+  (require 'key-chord)
+  (key-chord-mode 1)
+  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+
+  ;; General
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (rainbow-delimiters-mode -1)
+              (setq fill-column 100)
+              )
+            t)
+
+  ;; Auto save
+  (add-hook 'focus-out-hook
+            (lambda () (save-some-buffers t nil))
+            t)
 
   ;; Fuzzy search with ivy
   (setq ivy-re-builders-alist
@@ -498,9 +520,16 @@ before packages are loaded."
   (setq clojure-indent-style 'align-arguments)
   (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
-  (add-hook 'clojure-mode-hook #'paredit-mode)
-  (add-hook 'clojurec-mode-hook #'paredit-mode)
-  (add-hook 'clojurescript-mode-hook #'paredit-mode)
+
+  (let ((clojure-mode-config '(lambda ()
+                                (paredit-mode 1)
+                                (smartparens-mode -1))
+                             )
+        )
+    (add-hook 'clojurec-mode-hook clojure-mode-config t)
+    (add-hook 'clojurescript-mode-hook clojure-mode-config t)
+    (add-hook 'clojure-mode-hook clojure-mode-config t)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
